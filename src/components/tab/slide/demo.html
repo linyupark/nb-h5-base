@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>滑块tab选项卡</title>
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:3333/nb-component/build/nb-component.css">
+  <script src="http://127.0.0.1:3333/nb-component/build/nb-component.js"></script>
+  <style type="text/css">
+    html {
+      font-size: 37.5px;
+    }
+
+    body {
+      width: 10rem;
+      min-height: 100vh;
+    }
+
+    .demo {
+      font-size: .46rem;
+    }
+    p{
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+<div class="demo">
+  <nb-tab-slide
+    width="350"
+  >
+    <div class="item">必做</div>
+    <div class="item">选做</div>
+    <div class="item">提醒</div>
+  </nb-tab-slide>
+  <br>
+  <nb-tab-slide
+    position="top"
+  >
+    <div class="item">必做</div>
+    <div class="item">选做</div>
+    <div class="item">提醒</div>
+    <div class="item">必做</div>
+    <div class="item">选做</div>
+    <div class="item">提醒</div>
+  </nb-tab-slide>
+  <br>
+  <nb-tab-slide
+  >
+    <div class="item">
+      <p>近7日</p>
+      <p>1</p>
+    </div>
+    <div class="item">
+      <p>周</p>
+      <p>2</p>
+    </div>
+    <div class="item">
+      <p>月</p>
+      <p>3</p>
+    </div>
+    <div class="item">
+      <p>年</p>
+      <p>4</p>
+    </div>
+  </nb-tab-slide>
+</div>
+
+<script>
+  const el = document.querySelector('nb-tab-slide');
+  el.addEventListener('change', ({detail}) => {
+    console.log('选中第几个？', detail.index + 1);
+  });
+</script>
+</body>
+
+</html>

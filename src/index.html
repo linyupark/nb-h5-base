@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>@nb/h5-base</title>
+
+  <script type="module" src="/build/nb-h5-base.esm.js"></script>
+  <script nomodule src="/build/nb-h5-base.js"></script>
+
+  <style type="text/css">
+    html {
+      font-size: 37.5px;
+    }
+
+    body {
+      width: 10rem;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo {
+      font-size: .46rem;
+      height: 200vh;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="demo">
+    <nb-list>
+      <nb-list-item slide short="left">
+        <div>
+          <label>宇少安</label>
+          <span>15323142223</span>
+        </div>
+        <div>
+          已销户
+        </div>
+        <div
+          style="width: 2rem; height: 100%; display: flex; align-items: center; justify-content: center; background: red; color: #fff"
+          slot="slide" onclick="alert('del')">
+          删除</div>
+      </nb-list-item>
+      <nb-list-item slide short="left">
+        <div>
+          <label>宇少安</label>
+          <span>15323142223</span>
+        </div>
+        <div>
+          已销户
+        </div>
+        <div
+          style="width: 2rem; height: 100%; display: flex; align-items: center; justify-content: center; background: red; color: #fff"
+          slot="slide" onclick="alert('del')">
+          删除</div>
+      </nb-list-item>
+    </nb-list>
+  </div>
+
+</body>
+
+</html>
