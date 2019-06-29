@@ -1,6 +1,6 @@
 {
   "name": "@nb/h5-base",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "H5基础组件",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -37,5 +37,9 @@
   "keywords": [
     "nb-h5-base"
   ],
-  "author": "linyupark@gmail.com"
+  "author": "linyupark@gmail.com",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/linyupark/nb-h5-base.git"
+  }
 }
