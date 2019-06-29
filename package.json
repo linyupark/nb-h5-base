@@ -39,7 +39,7 @@
   ],
   "author": "linyupark@gmail.com",
   "repository": {
-    "type": "https",
+    "type": "git",
     "url": "https://github.com/linyupark/nb-h5-base.git"
   }
 }
