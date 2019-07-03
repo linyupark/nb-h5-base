@@ -84,13 +84,6 @@ export class Modal {
   @Prop({ mutable: true }) noText: string = '取消';
 
   /**
-   * 点击确认按钮对应的操作 中间健方便后续操作
-   */
-  @Prop({ mutable: true }) tmpOnNo: Function = () =>
-    this.onNo({
-      close: this.close.bind(this)
-    });
-  /**
    * 点击取消按钮对应的操作
    */
   @Prop({ mutable: true }) onNo: Function = () => this.close();
@@ -125,30 +118,16 @@ export class Modal {
     const options = {
       title: '',
       content: '',
-      // onOk: this.onOk,
-      // onNo: this.onNo,
+      okText: this.okText,
+      onOk: this.onOk,
       ...opts
     };
     // 如果是已经显示的则先关闭再触发一次
     if (this.visible) this.visible = false;
     this.type = type;
     this.headTitle = options.title;
-    console.log('asdsadasd', options);
-    if (options['onOk']) {
-      this.onOk = options['onOk'];
-    } else {
-      this.onOk = () => this.close();
-    }
-    if (options['onNo']) {
-      this.onNo = options['onNo'];
-    } else {
-      this.onNo = () => this.close();
-    }
-    if (options['okText']) {
-      this.okText = options['okText'];
-    } else {
-      this.okText = '确定';
-    }
+    this.okText = options.okText;
+    this.onOk = options.onOk;
     this.el.innerHTML = options.content;
     this.visible = true;
     return this.close.bind(this);
@@ -209,7 +188,7 @@ export class Modal {
             {/* 按钮 */}
             <div class="buttons">
               {this.type === 'confirm' && (
-                <button class="cancel" onClick={this.tmpOnNo.bind(this)}>
+                <button class="cancel" onClick={this.onNo.bind(this)}>
                   {this.noText}
                 </button>
               )}

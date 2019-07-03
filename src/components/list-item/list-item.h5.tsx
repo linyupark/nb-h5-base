@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Prop, State, Event, EventEmitter, Method, h } from '@stencil/core';
 
 /**
  * 区块项目
@@ -23,6 +23,11 @@ export class ListItem {
    * 当滑动块触发点击返回 { detail: { item: 滑动块DOM } }
    */
   @Event() slideClicked: EventEmitter;
+
+  /**
+   * 划出后发出信息 { detail: { status: 'in'  | 'out' }}
+   */
+  @Event() slideStatusChanged: EventEmitter;
 
   /**
    * 下边框, 0则不显示
@@ -95,6 +100,16 @@ export class ListItem {
   movePageX: number;
 
   /**
+   * 可手动回复滑动状态
+   */
+  @Method()
+  async slideOut() {
+    this.itemEl.style.transform = `translateX(0)`;
+    this.slideIn = false;
+    return this.slideIn;
+  }
+
+  /**
    * 滑动中
    * @param ev 滑动事件
    */
@@ -117,13 +132,19 @@ export class ListItem {
    */
   private onTouchEnd() {
     if (!this.slide) return;
-    const offsetX = Number(this.itemEl.style.transform.match(/\((.+)px\)/)[1]);
+    const offsetX = Number((this.itemEl.style.transform.match(/\((.+)px\)/) || [0,0])[1]);
     this.slideIn = offsetX < - (Number(this.slideEl.clientWidth) / 2);
     this.itemEl.style.transition = `transform 0.3s`;
     if (this.slideIn) {
       this.itemEl.style.transform = `translateX(${-this.slideEl.clientWidth}px)`;
+      this.slideStatusChanged.emit({
+        status: 'in'
+      });
     } else {
       this.itemEl.style.transform = `translateX(0)`;
+      this.slideStatusChanged.emit({
+        status: 'out'
+      });
     }
   }
   /**
