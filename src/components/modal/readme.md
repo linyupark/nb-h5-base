@@ -15,7 +15,6 @@
 | `onOk`      | --           | 点击确认按钮对应的操作                   | `Function`             | `() => this.close()`                                              |
 | `position`  | `position`   | 显示位置                          | `"center"`             | `'center'`                                                        |
 | `theme`     | `theme`      | 样式定义                          | `string`               | `'default'`                                                       |
-| `tmpOnNo`   | --           | 点击确认按钮对应的操作 中间健方便后续操作         | `Function`             | `() =>     this.onNo({       close: this.close.bind(this)     })` |
 | `tmpOnOk`   | --           | 点击确认按钮对应的操作 中间健方便后续操作         | `Function`             | `() =>     this.onOk({       close: this.close.bind(this)     })` |
 | `type`      | `type`       | 弹窗类型                          | `"alert" \| "confirm"` | `'alert'`                                                         |
 | `visible`   | `visible`    | 可见开关                          | `boolean`              | `false`                                                           |

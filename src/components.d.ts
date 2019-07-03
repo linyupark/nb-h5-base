@@ -243,6 +243,10 @@ export namespace Components {
     * 是否启用横滑操作开关
     */
     'slide': boolean;
+    /**
+    * 可手动回复滑动状态
+    */
+    'slideOut': () => Promise<boolean>;
   }
   interface NbMarquee {
     /**
@@ -300,10 +304,6 @@ export namespace Components {
     * 样式定义
     */
     'theme': string;
-    /**
-    * 点击确认按钮对应的操作 中间健方便后续操作
-    */
-    'tmpOnNo': Function;
     /**
     * 点击确认按钮对应的操作 中间健方便后续操作
     */
@@ -793,6 +793,10 @@ declare namespace LocalJSX {
     */
     'onSlideClicked'?: (event: CustomEvent<any>) => void;
     /**
+    * 划出后发出信息 { detail: { status: 'in'  | 'out' }}
+    */
+    'onSlideStatusChanged'?: (event: CustomEvent<any>) => void;
+    /**
     * 短线条方向
     */
     'short'?: 'left' | 'right' | 'both';
@@ -857,10 +861,6 @@ declare namespace LocalJSX {
     * 样式定义
     */
     'theme'?: string;
-    /**
-    * 点击确认按钮对应的操作 中间健方便后续操作
-    */
-    'tmpOnNo'?: Function;
     /**
     * 点击确认按钮对应的操作 中间健方便后续操作
     */

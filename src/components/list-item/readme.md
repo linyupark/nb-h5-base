@@ -19,9 +19,23 @@
 
 ## Events
 
-| Event          | Description                             | Type               |
-| -------------- | --------------------------------------- | ------------------ |
-| `slideClicked` | 当滑动块触发点击返回 { detail: { item: 滑动块DOM } } | `CustomEvent<any>` |
+| Event                | Description                                   | Type               |
+| -------------------- | --------------------------------------------- | ------------------ |
+| `slideClicked`       | 当滑动块触发点击返回 { detail: { item: 滑动块DOM } }       | `CustomEvent<any>` |
+| `slideStatusChanged` | 划出后发出信息 { detail: { status: 'in'  \| 'out' }} | `CustomEvent<any>` |
+
+
+## Methods
+
+### `slideOut() => Promise<boolean>`
+
+可手动回复滑动状态
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
 
 
 ----------------------------------------------
